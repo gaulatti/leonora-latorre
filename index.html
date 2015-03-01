@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="condoApp">
+<head>
+  <!-- Título -->
+  <title>Condominio Leonora Latorre</title>
+
+  <!-- Las Tías Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Condominio Leonora Latorre, Antofagasta - Chile"/>
+
+  <!-- Bootstrap -->
+  <link href="./css/bootstrap.css" rel="stylesheet">
+  
+  <!-- Fuentes -->
+  <link href="http://fonts.googleapis.com/css?family=Raleway:300,500" rel="stylesheet" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css" />
+  
+  <!-- Mapas -->
+  <link rel="stylesheet" href="./plugins/leaflet/leaflet.css" />
+
+  <!-- Estilos Personalizados -->
+  <link href="./css/leonoraLatorre.css" rel="stylesheet">
+  
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+  </head>
+  <body>
+    <aside></aside>
+    <nav>
+      <section class="navbar navbar-default" role="navigation">
+        <!-- Casualidades de la vida, o caprichos de Bootstrap? -->
+        <article class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="./images/condo150.png"></a>
+        </article>
+
+        <!-- Links, Links, Links! -->
+        <article class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav  navbar-right">
+            <li data-item="Inicio"><a href="#/Inicio">Inicio</a></li>
+            <li data-item="QuienesSomos"><a href="#/QuienesSomos">Quienes Somos</a></li>
+            <li data-item="Galeria"><a href="#/Galeria">Galería</a></li>
+            <li data-item="Documentos"><a href="#/Documentos">Documentos</a></li>
+            <li data-item="Contacto"><a href="#/Contacto">Contacto</a></li>
+            <li data-item="Ingresar"><a href="http://www.mastercode.cl/Home">Ingreso Usuarios</a></li>
+          </ul>
+        </article>
+      </section>
+    </nav>
+    <main>
+      <section ng-view></section>
+    </main>
+   <!--[if lte IE 8]>
+      <script>
+        document.createElement('aside');
+        document.createElement('nav');
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('main');
+      </script>
+    <![endif]-->
+    <!-- jQuery  -->
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="./js/bootstrap.min.js"></script>
+
+    <!-- Mapas -->
+    <script src="./plugins/leaflet/leaflet.js"></script>
+
+    <!-- Angular -->
+    <script src="./js/angular.js"></script>
+    <script src="./js/angular-route.js"></script>
+
+    <!-- PDF -->
+    <script src="./js/pdfobject.js"></script>
+
+    <!-- App -->
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers.js"></script>
+  </body>
+  </html>
