@@ -1,6 +1,6 @@
 # Leonora Latorre historical site
 
-This is an archive of a condominium website built circa 2013–2015. It is
+This is an archive of a condominium website written in 2013. It is
 published at <https://leonora.archive.gaulatti.com/> as a record of the original
 work. All prices, contact information, names, and operational notices are
 historical and should not be used for current condominium business.
