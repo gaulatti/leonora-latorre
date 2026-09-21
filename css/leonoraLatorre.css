@@ -10,6 +10,15 @@ body {
 	background-position: center center;	background-size:cover;
 	background-repeat:no-repeat; background-attachment:fixed;
 }
+.archive-notice {
+	position: relative;
+	z-index: 1;
+	padding: 10px 18px;
+	background: #113366;
+	color: white;
+	text-align: center;
+	font: 14px/1.5 'Helvetica Neue', Helvetica, sans-serif;
+}
 
 /* Base */
 body > aside {
@@ -71,7 +80,7 @@ article.destacado > blockquote {color: white; padding: 20px; margin: 0; backgrou
 /* Galería de Fotos */
 article#Galeria > figure {
 	height: 540px;
-	background: url(http://1.bp.blogspot.com/-8CzGILNMcoc/T6QaEWawvfI/AAAAAAAAAK8/Fe3Burx_cLs/s1600/DSCN0160.JPG);
+	background: url(../images/gallery/DSCN0160.JPG);
 	background-size: cover;
 	background-position: center center;
 	-webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease;                 

@@ -1,0 +1,31 @@
+name: Deploy historical archive
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: leonora-archive-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build static archive
+        run: bash scripts/build-archive
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::792025092931:role/macondo-leonora-archive-deploy
+          aws-region: us-east-1
+      - name: Upload archive
+        run: aws s3 sync dist/ s3://macondostack-leonora-archive/ --delete --only-show-errors
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id "${{ vars.LEONORA_ARCHIVE_DISTRIBUTION_ID }}" --paths '/*'
