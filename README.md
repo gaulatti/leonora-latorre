@@ -1,26 +1,41 @@
-# leonora-latorre — superseded/read-only
+# Leonora Latorre historical site
 
-> **Do not deploy or republish this repository.** It is retained as historical
-> source for a 2015 condominium website and has no current delivery contract.
+This repository preserves a condominium website written in 2013. Prices,
+contact information, names and operational notices describe the historical
+site; they are not current condominium information.
 
-The following are unverified historical reports from 2026-09-07. Their original
-command receipts are unavailable; they do not prove current DNS, ownership,
-settings or service health:
+The existing [read-only disposition](DISPOSITION.md) remains in force until the
+owner approves publication. This candidate prepares an HTTPS-compatible archive
+for the proposed destination `https://leonora.archive.gaulatti.com/`; it does not
+establish that the destination is deployed or healthy.
 
-- the advertised `condominioleonoralatorre.cl` domain has no NIC Chile
-  registration or DNS records;
-- GitHub Pages is disabled and the repository has no Actions, deployment,
-  release, package, webhook, or environment surface;
-- no portfolio consumer or replacement repository was found; and
-- the only discoverable public content surface is the older independent
-  [Condominio Leonora Latorre Blogspot](https://condominioleonora.blogspot.com/),
-  whose latest post is from 2012 and whose ownership is not established here.
+The original AngularJS, Bootstrap, jQuery, Leaflet and PDFObject dependencies
+are committed. There is no npm install or compilation step. Gallery images are
+stored locally. Google Fonts and OpenStreetMap tiles still use HTTPS; navigation
+must remain usable if those external services are unavailable.
 
-`gaulatti` remains the preservation owner of this historical source. The site,
-vendored dependencies, images, and four governance PDFs are intentionally left
-unchanged. Any future publication requires a new repository-owned ticket with
-an identified product owner, destination, content authority, privacy review,
-verification plan, and rollback procedure.
+## Local preview
 
-See [DISPOSITION.md](DISPOSITION.md) for the dated evidence, decision rationale,
-recovery impact, and unverified boundaries.
+```bash
+bash scripts/build-archive
+python3 -m http.server 8000 --directory dist
+```
+
+Open <http://localhost:8000/>. Hash routes keep navigation on the root document;
+governance documents are served from `files/`. The build replaces only its
+ignored `dist/` output and copies the historical site into that directory.
+
+## Proposed deployment
+
+The candidate's `master` workflow assumes the OIDC role
+`macondo-leonora-archive-deploy`, synchronizes `dist/` into the dedicated private
+S3 bucket `macondostack-leonora-archive` with deletion of stale destination
+objects, and invalidates CloudFront. Macondo owns the bucket, distribution,
+certificate, DNS and deployment role. `LEONORA_ARCHIVE_DISTRIBUTION_ID` must name
+the verified distribution before deployment. The workflow refuses to configure
+AWS credentials or upload any files when that variable is missing.
+
+Publication would expose the historical contact/person-role content, gallery
+and four governance PDFs at the archive destination. Owner approval must cover
+that content and the exact AWS deployment before merging this candidate, since
+merging triggers the workflow. This patch changes no repository archive setting.

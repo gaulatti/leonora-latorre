@@ -83,3 +83,12 @@ currently identified.
 No deployment, publication, source/history deletion, domain or DNS change,
 credential action, package mutation, external-site edit, or repository archive
 is included in this disposition.
+
+## Pending archive proposal
+
+PR #3 prepares a local HTTPS-compatible archive and a dedicated S3/CloudFront
+deployment. The current delivery request includes reviewing and repairing that
+proposal. Preparation does not supersede this disposition or authorize live
+publication. The owner must approve the exact archive destination, historical
+content and AWS deployment before merge. The website was written in 2013; the
+2015 Git commit date in the historical evidence table is a separate fact.

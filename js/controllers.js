@@ -4,9 +4,9 @@ phonecatControllers.controller('InicioCtrl', ['$scope',
     // Inicializar Mapa
     var map = L.map('map').setView([-23.59363, -70.3954], 17);
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     var popup = L.popup({closeButton: false, keepInView: true})
     .setContent('<p><b>El Oro 8275</b><br />Antofagasta</p>');
@@ -51,9 +51,9 @@ phonecatControllers.controller('ContactoCtrl', ['$scope',
     // Inicializar Mapa
     var map = L.map('map').setView([-23.59363, -70.3954], 17);
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     	maxZoom: 18,
-    	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     L.marker([-23.59363, -70.3954]).addTo(map);
