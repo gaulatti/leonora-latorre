@@ -32,7 +32,8 @@ The candidate's `master` workflow assumes the OIDC role
 S3 bucket `macondostack-leonora-archive` with deletion of stale destination
 objects, and invalidates CloudFront. Macondo owns the bucket, distribution,
 certificate, DNS and deployment role. `LEONORA_ARCHIVE_DISTRIBUTION_ID` must name
-the verified distribution before deployment; the variable is currently absent.
+the verified distribution before deployment. The workflow refuses to configure
+AWS credentials or upload any files when that variable is missing.
 
 Publication would expose the historical contact/person-role content, gallery
 and four governance PDFs at the archive destination. Owner approval must cover

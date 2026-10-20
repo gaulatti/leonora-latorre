@@ -16,10 +16,18 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      LEONORA_ARCHIVE_DISTRIBUTION_ID: ${{ vars.LEONORA_ARCHIVE_DISTRIBUTION_ID }}
     steps:
       - uses: actions/checkout@v4
       - name: Build static archive
         run: bash scripts/build-archive
+      - name: Validate archive deployment configuration
+        run: |
+          if [ -z "${LEONORA_ARCHIVE_DISTRIBUTION_ID:-}" ]; then
+            echo "::error::LEONORA_ARCHIVE_DISTRIBUTION_ID must be configured before publishing the archive."
+            exit 1
+          fi
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -28,4 +36,4 @@ jobs:
       - name: Upload archive
         run: aws s3 sync dist/ s3://macondostack-leonora-archive/ --delete --only-show-errors
       - name: Invalidate CloudFront
-        run: aws cloudfront create-invalidation --distribution-id "${{ vars.LEONORA_ARCHIVE_DISTRIBUTION_ID }}" --paths '/*'
+        run: aws cloudfront create-invalidation --distribution-id "$LEONORA_ARCHIVE_DISTRIBUTION_ID" --paths '/*'
