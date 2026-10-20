@@ -3,7 +3,9 @@
 > **Do not deploy or republish this repository.** It is retained as historical
 > source for a 2015 condominium website and has no current delivery contract.
 
-As of 2026-09-07:
+The following are unverified historical reports from 2026-09-07. Their original
+command receipts are unavailable; they do not prove current DNS, ownership,
+settings or service health:
 
 - the advertised `condominioleonoralatorre.cl` domain has no NIC Chile
   registration or DNS records;
